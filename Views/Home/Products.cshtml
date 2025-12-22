@@ -1,0 +1,36 @@
+@model IEnumerable<MyAssessment.WebMVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1 class="text-center my-4">🌸 Our Flower Collection 🌸</h1>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var p in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0 rounded">
+
+                    <img src="@p.ImgUrl" class="card-img-top" style="height:250px; object-fit:cover;" />
+
+                    <div class="card-body">
+                        <h4 class="card-title">@p.Name</h4>
+                        <p class="card-text text-muted">@p.Des</p>
+
+                        <p class="fw-bold">Price: ₹ @p.UnitPrice</p>
+                        <p>Available Qty: @p.Quantity</p>
+
+                        <p class="text-danger fw-bold">❤️ @p.Likes Likes</p>
+
+                        <a href="/ShoppingCart/AddToCart/@p.Id" class="btn btn-primary w-100">Add to cart</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

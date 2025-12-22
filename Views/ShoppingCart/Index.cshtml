@@ -1,0 +1,10 @@
+@model IEnumerable<MyAssessment.WebMVC.Models.CartItem>
+<h2>Shopping Cart</h2>
+
+@foreach(var item in Model )
+{   
+    <div>
+        @item.Product.Name - @item.Product.Quantity 
+        <a href="/ShoppingCart/RemoveFromCart/@item.Product.Id">Remove</a> 
+    </div>
+}
