@@ -28,7 +28,46 @@
         <dd class="col-sm-10"><img src="@Model.ImgUrl" width="100" /></dd>
     </dl>
 
+    <!-- NEW: BUY NOW + ADD TO CART block -->
+    <div class="mt-4" style="max-width:300px;">
+        <form asp-controller="ShoppingCart" asp-action="BuyNow" method="post" class="mb-2">
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            <label class="form-label">Quantity</label>
+            <div class="input-group mb-3">
+                <button type="button" class="btn btn-outline-secondary" onclick="changeQty(-1)">-</button>
+                <input id="qtyInput" type="number" name="qty" value="1" min="1"
+                       class="form-control text-center" />
+                <button type="button" class="btn btn-outline-secondary" onclick="changeQty(1)">+</button>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100">BUY NOW</button>
+        </form>
+
+        <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="hidden" id="qtyInputHidden" name="qty" value="1" />
+            <button type="submit" class="btn btn-outline-dark w-100">ADD TO CART</button>
+        </form>
+    </div>
+    <!-- END NEW BLOCK -->
+
+    <hr />
+
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> |
     <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a> |
     <a asp-controller="Home" asp-action="Profile">Back</a>
 </div>
+
+@section Scripts{
+    <script>
+        function changeQty(delta) {
+            const input1 = document.getElementById('qtyInput');
+            const input2 = document.getElementById('qtyInputHidden');
+            let value = parseInt(input1.value || '1') + delta;
+            if (value < 1) value = 1;
+            input1.value = value;
+            input2.value = value;
+        }
+    </script>
+}

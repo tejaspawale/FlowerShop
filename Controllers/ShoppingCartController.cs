@@ -21,16 +21,51 @@ namespace MyAssessment.WebMVC.Controllers
             List<CartItem> cartItems = _cartService.GetCart();
             return View(cartItems);
         }
-        public async Task<IActionResult> AddToCart(int id)
-        {
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-            _cartService.AddToCart(product);
-            return RedirectToAction("index");
-        }
-        public async Task<IActionResult> RemoveFromCart(int id)
-        {
-            _cartService.RemoveFromCart(id);
-            return RedirectToAction("Index");
-        }
+
+
+    [HttpPost]
+    public async Task<IActionResult> AddToCart(int id, int qty = 1)
+    {
+    var hp = await _context.HomeProducts.FirstOrDefaultAsync(p => p.Id == id);
+    if (hp == null) return NotFound();
+
+    var product = new Product
+    {
+        Id        = hp.Id,
+        Name      = hp.Name,
+        Des       = hp.Des,
+        UnitPrice = hp.UnitPrice,
+        Quantity  = hp.Quantity,
+        Likes     = hp.Likes,
+        ImgUrl    = hp.ImgUrl
+    };
+    _cartService.AddToCart(product, qty);
+    return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+public async Task<IActionResult> BuyNow(int id, int qty = 1)
+{
+    var hp = await _context.HomeProducts.FirstOrDefaultAsync(p => p.Id == id);
+    if (hp == null) return NotFound();
+
+    var product = new Product
+    {
+        Id        = hp.Id,
+        Name      = hp.Name,
+        Des       = hp.Des,
+        UnitPrice = hp.UnitPrice,
+        Quantity  = hp.Quantity,
+        Likes     = hp.Likes,
+        ImgUrl    = hp.ImgUrl
+    };
+
+    _cartService.AddToCart(product, qty);
+    return RedirectToAction("Index");   // cart page
+}
+
+
+
+        
     }
 }

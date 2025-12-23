@@ -30,13 +30,17 @@
                     </div>
 
                     <div class="card-footer bg-white border-0">
-                        <a asp-controller="ShoppingCart"
-                           asp-action="AddToCart"
-                           asp-route-id="@product.Id"
-                           class="btn btn-dark w-100">
-                            Add to Cart
-                        </a>
-                    </div>
+    <form asp-controller="ShoppingCart"
+          asp-action="AddToCart"
+          method="post"
+          class="mb-0">
+        <input type="hidden" name="id" value="@product.Id" />
+        <input type="hidden" name="qty" value="1" />
+        <button type="submit" class="btn btn-dark w-100">
+            Add to Cart
+        </button>
+    </form>
+</div>
                 </div>
             </div>
         }

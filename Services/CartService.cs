@@ -17,45 +17,65 @@ namespace MyAssessment.WebMVC.Services
         public List<CartItem> GetCart()
         {
             var session = _httpContextAccessor.HttpContext!.Session;
-            var cart = session.GetObject<List<CartItem>>("CART")
-              ?? new List<CartItem>();
+            var cart = session.GetObject<List<CartItem>>("CART") ?? new List<CartItem>();
             return cart;
         }
-        public void AddToCart(Product product)
-        {
-            var session = _httpContextAccessor.HttpContext!.Session;
-            var cart = session.GetObject<List<CartItem>>("CART")
+       
+            public void AddToCart(Product product, int qty = 1)
+{
+    var session = _httpContextAccessor.HttpContext!.Session;
+    var cart = session.GetObject<List<CartItem>>("CART")
               ?? new List<CartItem>();
 
-            var item = cart.FirstOrDefault(c => c.Product.Id == product.Id);
+    var item = cart.FirstOrDefault(c => c.Product!.Id == product.Id);
 
-            if (item != null)
-            {
-                item.Quantity++;
-            }
-            else
-            {
-                cart.Add(new CartItem
-                {
-                    Product = product,
-                    Quantity = 1
-                });
-                session.SetObject("CART", cart);
-            }
-        }
+    if (item != null)
+    {
+        item.Quantity += qty;        // increase by qty
+    }
+    else
+    {
+        cart.Add(new CartItem
+        {
+            Product = product,
+            Quantity = qty
+        });
+    }
+
+    session.SetObject("CART", cart); // always save after change
+}
+
+
+
         public void RemoveFromCart(int id)
         {
             var session = _httpContextAccessor.HttpContext!.Session;
             List<CartItem> cart = session.GetObject<List<CartItem>>("CART")
               ?? new List<CartItem>();
 
-            var item = cart.FirstOrDefault(c => c.Product.Id == id);
+           var item = cart.FirstOrDefault(c => c.Product!.Id == id);
+
             if (item != null)
             {
                 cart.Remove(item);
                 session.SetObject("CART", cart);
             }
 
+        }
+
+        // public void AddToCart(Product product, int qty = 1)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        public void IncreaseQuantity(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DecreaseQuantity(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

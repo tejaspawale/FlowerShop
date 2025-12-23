@@ -275,3 +275,4 @@ C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\Microsoft.Extensions.Depen
 C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\Mono.TextTemplating.dll
 C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\System.CodeDom.dll
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\4zx7mr8d3a-o6l413h7al.gz
+C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\MyAssessment.WebMVC.sourcelink.json
