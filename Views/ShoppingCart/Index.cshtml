@@ -57,3 +57,48 @@
     <h4>Total: ₹@total.ToString("N2")</h4>
     <a asp-action="BuyNow" asp-route-id="0" class="btn btn-success btn-lg disabled">Buy Now (later)</a>
 </div>
+
+
+
+@{
+    var remaining = ViewBag.RemainingFlowers
+        as List<MyAssessment.WebMVC.Models.HomeProduct>
+        ?? new List<MyAssessment.WebMVC.Models.HomeProduct>();
+}
+
+@if (remaining.Any())
+{
+    <hr />
+    <h4>Other flowers you may like</h4>
+
+    <div class="d-flex flex-row flex-nowrap overflow-auto pt-3">
+        @foreach (var f in remaining)
+        {
+            <div class="card me-3" style="min-width: 180px;">
+                <img src="@f.ImgUrl"
+                     class="card-img-top"
+                     alt="@f.Name"
+                     style="height:140px;object-fit:cover;" />
+                <div class="card-body p-2">
+                    <div class="small fw-bold text-truncate">@f.Name</div>
+                    <div class="text-muted small text-truncate">@f.Des</div>
+                    <div class="fw-semibold mt-1">
+                        ₹@f.UnitPrice.ToString("N2")
+                    </div>
+
+                    <form asp-controller="ShoppingCart"
+                          asp-action="AddToCart"
+                          method="post"
+                          class="mt-1">
+                        <input type="hidden" name="id" value="@f.Id" />
+                        <input type="hidden" name="qty" value="1" />
+                        <button type="submit"
+                                class="btn btn-outline-dark btn-sm w-100">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}

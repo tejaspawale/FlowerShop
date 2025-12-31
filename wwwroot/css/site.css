@@ -35,3 +35,82 @@ body {
     color: #fff;              /* white text */
 }
 
+
+/* Sticky footer styles */
+.top-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #111;
+    padding: 12px 20px;
+    color: #fff;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.delivery-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-center form {
+    display: flex;
+    width: 60%;
+}
+
+.nav-center input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+}
+
+.nav-center button {
+    padding: 10px 15px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 0 6px 6px 0;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+}
+
+.like-btn {
+    transition: color 0.3s ease;
+}
+

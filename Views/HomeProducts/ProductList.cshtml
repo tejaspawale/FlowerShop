@@ -23,9 +23,13 @@
                             <span class="h5 text-success mb-0">
                                 ₹@product.UnitPrice.ToString("N2")
                             </span>
-                            <span class="text-warning">
-                                ❤️ @product.Likes
-                            </span>
+                          <button class="btn btn-link fs-4 text-secondary like-btn"
+        data-id="@product.Id"
+        onclick="likeProduct(this)">
+    ❤️
+</button>
+
+
                         </div>
                     </div>
 

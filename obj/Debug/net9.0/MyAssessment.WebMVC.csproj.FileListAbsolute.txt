@@ -197,7 +197,6 @@ C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\scopedcss\Views\Shared\_La
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\scopedcss\bundle\MyAssessment.WebMVC.styles.css
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\scopedcss\projectbundle\MyAssessment.WebMVC.bundle.scp.css
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\hgt8rwh617-61n19gt1b8.gz
-C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\bn2u2mk8iz-xtxxf3hu2r.gz
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\xvd83x0nw8-bqjiyaj88i.gz
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\nwozcti4vq-c2jlpeoesf.gz
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\26ie3g4csi-erw9l3u2r3.gz
@@ -274,5 +273,6 @@ C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\Microsoft.EntityFrameworkC
 C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
 C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\Mono.TextTemplating.dll
 C:\C#\PractiseC#\MyAssessment.WebMVC\bin\Debug\net9.0\System.CodeDom.dll
-C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\4zx7mr8d3a-o6l413h7al.gz
 C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\MyAssessment.WebMVC.sourcelink.json
+C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\4zx7mr8d3a-5viyyn21j0.gz
+C:\C#\PractiseC#\MyAssessment.WebMVC\obj\Debug\net9.0\compressed\bn2u2mk8iz-yrb4eix2l9.gz

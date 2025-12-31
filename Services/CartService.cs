@@ -13,7 +13,7 @@ namespace MyAssessment.WebMVC.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-
+         private ISession Session => _httpContextAccessor.HttpContext!.Session;
         public List<CartItem> GetCart()
         {
             var session = _httpContextAccessor.HttpContext!.Session;
@@ -69,13 +69,31 @@ namespace MyAssessment.WebMVC.Services
         // }
 
         public void IncreaseQuantity(int id)
-        {
-            throw new NotImplementedException();
-        }
+{
+    var cart = GetCart();
+    var item = cart.FirstOrDefault(c => c.Product != null && c.Product.Id == id);
+    
+    if (item != null)
+    {
+        item.Quantity++;
+        Session.SetObject("CART", cart);
+    }
+}
 
-        public void DecreaseQuantity(int id)
-        {
-            throw new NotImplementedException();
-        }
+public void DecreaseQuantity(int id)
+{
+    var cart = GetCart();
+    var item = cart.FirstOrDefault(c => c.Product != null && c.Product.Id == id);
+    
+    if (item != null)
+    {
+        item.Quantity--;
+        if (item.Quantity <= 0)
+            cart.Remove(item);
+
+        Session.SetObject("CART", cart);
+    }
+}
+
     }
 }

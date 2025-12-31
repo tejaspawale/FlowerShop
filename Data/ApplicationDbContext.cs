@@ -14,5 +14,8 @@ namespace MyAssessment.WebMVC.Data
         public DbSet<Home> Homes { get; set; }
 
         public DbSet<HomeProduct> HomeProducts { get; set; }
+
+        public DbSet<Subscription> Subscriptions { get; set; }
+
     }
 }

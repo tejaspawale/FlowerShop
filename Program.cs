@@ -38,6 +38,8 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 
 app.MapControllerRoute(
